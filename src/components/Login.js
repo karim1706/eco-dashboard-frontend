@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Header from './Header';
 import {useNavigate} from 'react-router-dom';
 
 function Login() {
@@ -10,10 +11,14 @@ function Login() {
     {
       navigate('/add');
     }
-  }, [])
+  })
 
   return (
-    <div>Login Page</div>
+    <>
+      <Header />
+
+      <h1>Login Page</h1>
+    </>
   )
 }
 

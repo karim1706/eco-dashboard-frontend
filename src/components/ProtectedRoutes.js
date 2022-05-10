@@ -11,7 +11,7 @@ function ProtectedRoutes(props) {
         {
           navigate('/register');
         }
-      }, [])
+      })
 
 
     let Comp = props.Comp;

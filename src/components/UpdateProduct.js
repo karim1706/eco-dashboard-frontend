@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Header from './Header';
 
 function UpdateProduct() {
   return (
-    <div>UpdateProduct</div>
+    <>
+      <Header />
+      <h1>UpdateProduct</h1>
+    </>
   )
 }
 
