@@ -1,22 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 function Register() {
+
+  useEffect(() => {
+    if(localStorage.getItem('user-info'))
+    {
+      navigate('/add');
+    }
+  }, [])
 
   const [name, setName]= useState("");
   const [email, setEmail]= useState("");
   const [password, setPassword]= useState("");
+  const navigate = useNavigate();
 
   const signUp = async () => {
     //let item = { name, email, password };
 
-    await axios.post('http://localhost:8000/api/register', {
+  let result =  await axios.post('http://localhost:8000/api/register', {
       name: name,
       email: email,
       password: password,
     })
-                .then(response => console.log(response))
-                .catch((error) => console.log(error));
+
+    localStorage.setItem('user-info', JSON.stringify(result.data));
+    navigate('/add');
   }
 
   return (

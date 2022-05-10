@@ -4,7 +4,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddProduct from './components/AddProduct';
 import UpdateProduct from './components/UpdateProduct';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/update" element={<UpdateProduct />}/>
-          <Route path="/add" element={<AddProduct />}/>
+          <Route path="/update" element={<ProtectedRoutes Comp={UpdateProduct}/>}/>
+          <Route path="/add" element={<ProtectedRoutes Comp={AddProduct}/>}/>
         </Routes>
       </BrowserRouter>
      
