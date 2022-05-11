@@ -1,10 +1,18 @@
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import "../App.css";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Header() {
 
-  let user = JSON.parse(localStorage.getItem('user-info'));
+  const logged = localStorage.getItem('user-info');
+
+  let user = JSON.parse(logged); 
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    localStorage.clear();
+    navigate('/register');
+  }
 
   return (
     <div >
@@ -12,7 +20,7 @@ function Header() {
             <Navbar.Brand className="navbar-brand col-lg-2" href="#home">E-Com</Navbar.Brand>
             <Nav className='mr-auto navbar_wrapper col-lg-8'>
                 {
-                  localStorage.getItem('user-info') ?
+                  logged ?
                   <>
                     <Link to='/add'>Add Products</Link>
                     <Link to='/update'>Update Products</Link>
@@ -25,11 +33,18 @@ function Header() {
                 }  
             </Nav>
 
+            {logged ?
             <Nav className='col-lg-2'>
+              
               <NavDropdown title={user.name} className="navDropDown col-lg-2">
-                <NavDropdown.Item>Logout</NavDropdown.Item>
+    
+                <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
+                <NavDropdown.Item>Profile</NavDropdown.Item>
               </NavDropdown>
             </Nav>
+            :
+            null
+        }
         </Navbar>
     </div>
     
