@@ -35,10 +35,13 @@ function Register() {
     <Header />
     <div className='col-sm-6 offset-sm-3'>
         <h1>REGISTRATION PAGE</h1>
-        <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control mb-2" placeholder='name'/>
-        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control mb-2" placeholder='email'/>
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control mb-4" placeholder='password'/>
 
+        <form id='registerForm'>
+          <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control mb-2" placeholder='name'/>
+          <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control mb-2" placeholder='email'/>
+          <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control mb-4" placeholder='password'/>
+        </form>
+        
         <button onClick={signUp} className='btn btn-success'>Sign Up</button>
     </div>
     </>
