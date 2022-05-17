@@ -3,12 +3,12 @@ import Header from './Header';
 
 function Home() {
   return (
-    <div>
+    <div id="home">
         <Header />
-        <h1>E-COM DASHBOARD</h1>
-        <h3>Your E-commerce dashboard</h3>
+        <h2>YOUR SHOP</h2>
+        <h3>Welcome to your e-commerce dashboard</h3>
         <p>You can manage your Store Market easily !</p>
-
+        <p>Register now if you're not already or login to your account.</p>
     </div>
   )
 }

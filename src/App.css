@@ -30,3 +30,9 @@ h1 {
   justify-content: end !important;
 }
 
+#home {
+  background: #5742B0;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+}

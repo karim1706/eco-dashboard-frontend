@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import AddProduct from './components/AddProduct';
 import UpdateProduct from './components/UpdateProduct';
+import ProductList from './components/ProductList';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
@@ -13,11 +14,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/update" element={<ProtectedRoutes Comp={UpdateProduct}/>}/>
           <Route path="/add" element={<ProtectedRoutes Comp={AddProduct}/>}/>
+          <Route path="/" element={<ProtectedRoutes Comp={ProductList}/>}/>
         </Routes>
       </BrowserRouter>
      
