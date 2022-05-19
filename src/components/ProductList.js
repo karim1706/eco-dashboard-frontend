@@ -8,15 +8,23 @@ function ProductList() {
   const [data, setData]=useState([]);
 
   useEffect( () => {
-    const getAllDatas = async () => {
-      let result = await axios.get('http://localhost:8000/api/list'); console.log(result)
-      setData(result.data);
-    } 
-
+    
     getAllDatas();
     
-  }, [])
+  }, []);
   
+
+  const deleteProduct = async (id) => {
+    await axios.delete('http://localhost:8000/api/delete/'+id);
+    getAllDatas();
+    console.log('product successfuly deleted !')
+  }
+
+  
+  const getAllDatas = async () => {
+    let result = await axios.get('http://localhost:8000/api/list'); console.log(result)
+    setData(result.data);
+  } 
 
   return (
     <div>
@@ -30,6 +38,7 @@ function ProductList() {
               <td>Price</td>
               <td>Description</td>
               <td>Image</td>
+              <td>Operations</td>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +50,7 @@ function ProductList() {
                   <td>{item.price}</td>
                   <td>{item.description}</td>
                   <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt="Products Images"/></td>
+                  <td><span onClick={()=>deleteProduct(item.id)} className='delete-btn'>Delete</span></td>
                 </tr>
               )
             }

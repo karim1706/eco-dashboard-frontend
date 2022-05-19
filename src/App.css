@@ -36,3 +36,11 @@ h1 {
   height: 100vh;
   color: #fff;
 }
+
+.delete-btn {
+  background-color: #a90b0b;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
