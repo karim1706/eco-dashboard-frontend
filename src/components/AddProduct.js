@@ -10,7 +10,6 @@ function AddProduct() {
   const [description, setDescription] = useState("");
 
   const saveProducts = async () => {
-    console.log(name, file, price, description);
     const formData = new FormData();
     formData.append('file', file);
     formData.append('price', price);

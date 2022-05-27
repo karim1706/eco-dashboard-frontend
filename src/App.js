@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/update" element={<ProtectedRoutes Comp={UpdateProduct}/>}/>
+          <Route path="/update/:id" element={<ProtectedRoutes Comp={UpdateProduct}/>}/>
           <Route path="/add" element={<ProtectedRoutes Comp={AddProduct}/>}/>
           <Route path="/" element={<ProtectedRoutes Comp={ProductList}/>}/>
         </Routes>

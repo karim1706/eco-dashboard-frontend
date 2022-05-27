@@ -2,10 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Header from './Header';
 import {Table} from 'react-bootstrap';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function ProductList() {
 
-  const [data, setData]=useState([]);
+  const [data, setData]=useState([]); 
 
   useEffect( () => {
     
@@ -15,14 +16,19 @@ function ProductList() {
   
 
   const deleteProduct = async (id) => {
+    let confirmDelete = window.confirm("are you sure you want to delete that product ?")
+    if(confirmDelete){
     await axios.delete('http://localhost:8000/api/delete/'+id);
     getAllDatas();
     console.log('product successfuly deleted !')
+    }else{
+      alert('Action cancelled !')
+    }
   }
 
   
   const getAllDatas = async () => {
-    let result = await axios.get('http://localhost:8000/api/list'); console.log(result)
+    let result = await axios.get('http://localhost:8000/api/list');
     setData(result.data);
   } 
 
@@ -43,14 +49,19 @@ function ProductList() {
           </thead>
           <tbody>
             {
-              data.map((item)=> 
-                <tr>
+              data.map((item, key)=> 
+                <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.price}</td>
                   <td>{item.description}</td>
                   <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt="Products Images"/></td>
                   <td><span onClick={()=>deleteProduct(item.id)} className='delete-btn'>Delete</span></td>
+                  <td>
+                    <Link to={"update/"+item.id}>
+                        <span className='update-btn'>Update</span>
+                    </Link>
+                  </td>
                 </tr>
               )
             }

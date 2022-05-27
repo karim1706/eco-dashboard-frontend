@@ -44,3 +44,11 @@ h1 {
   cursor: pointer;
   padding: 5px;
 }
+
+.update-btn {
+  background-color: green;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
