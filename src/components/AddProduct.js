@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import Header from './Header';
 
 function AddProduct() {
-
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [file, setFile] = useState("");
   const [price, setPrice] = useState("");
@@ -18,8 +19,8 @@ function AddProduct() {
 
     await axios.post('http://localhost:8000/api/addproduct',formData)
     console.log("Product added successfuly !");
-
     document.getElementById('addProductForm').reset();
+    navigate('/');
   }
 
   return (
