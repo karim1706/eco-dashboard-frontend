@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Header from './Header';
 import {useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function UpdateProduct(props) {
    
@@ -21,13 +23,15 @@ function UpdateProduct(props) {
 
     choosedProduct();
 
-  },[] );
+  }, [productId]);
 
   const [name, setName] = useState("");
   const [file, setFile] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
+
+  const MySwal = withReactContent(Swal)
 
   const editProduct = async (productId) => {
     let products  = {name, file, price, description}; console.log(products);
@@ -37,6 +41,13 @@ function UpdateProduct(props) {
       price: price,
       description: description
     })
+
+    MySwal.fire({
+      title: <strong>Good job!</strong>,
+      html: <i>You successfuly update the product N° {data.id} !</i>,
+      icon: 'success'
+    })
+
     navigate('/');
     console.log("Product updated successfuly !");
   }

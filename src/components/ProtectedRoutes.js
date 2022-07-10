@@ -9,9 +9,9 @@ function ProtectedRoutes(props) {
     useEffect(() => {
         if(!localStorage.getItem('user-info'))
         {
-          navigate('/register');
+          navigate('/');
         }
-      })
+      }, [])
 
 
     let Comp = props.Comp;

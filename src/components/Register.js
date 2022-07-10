@@ -5,17 +5,19 @@ import {useNavigate} from 'react-router-dom';
 
 function Register() {
 
+    const navigate = useNavigate();
+
+
   useEffect(() => {
     if(localStorage.getItem('user-info'))
     {
-      navigate('/add');
+      navigate(() => '/add');
     }
-  }, [])
+  }, [navigate])
 
   const [name, setName]= useState("");
   const [email, setEmail]= useState("");
   const [password, setPassword]= useState("");
-  const navigate = useNavigate();
 
   const signUp = async () => {
     //let item = { name, email, password };
@@ -42,7 +44,7 @@ function Register() {
           <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control mb-4" placeholder='password'/>
         </form>
         
-        <button onClick={signUp} className='btn btn-success'>Sign Up</button>
+        <button onClick={signUp} className='btn btn-success offset-sm-5'>Sign Up</button>
     </div>
     </>
   )

@@ -11,27 +11,28 @@ function Header() {
 
   const logOut = () => {
     localStorage.clear();
-    navigate('/register');
+    navigate('/');
   }
 
   return (
     <div >
         <Navbar bg="dark" variant="dark" id="header" className='col-lg-12'>
-            <Navbar.Brand className="navbar-brand col-lg-2" href="#home">E-Com</Navbar.Brand>
+            <Link className="navbar-brand col-lg-2" to="/" >E-Com</Link>
             <Nav className='mr-auto navbar_wrapper col-lg-8'>
                 {
-                  logged ?
-                  <>
-                    <Link to='/'>Product List</Link>
-                    <Link to='/add'>Add Products</Link>
-                    <Link to='/update'>Update Products</Link>
-                    <Link to='/search'>Search Products</Link>
-                  </>
-                    :
+                  !logged ?
                   <>
                     <Link to='/login'>Login</Link>
                     <Link to='/register'>Register</Link>
                   </>
+                  :
+                  <>
+                    <Link to='/'>Product List</Link>
+                    <Link to='/add'>Add Products</Link>
+                    <Link to='/search'>Search Products</Link>
+                  </>
+                    
+                  
                 }  
             </Nav>
 

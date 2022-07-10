@@ -3,6 +3,7 @@ import Header from './Header';
 import axios from 'axios';
 import {Table} from 'react-bootstrap'
 
+
 function SearchProduct() {
 
     const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ function SearchProduct() {
     <Header />
     <div className='col-sm-6 offset-sm-3'>
         <h1>SearchProduct</h1>
-        <input onChange={(e)=>search(e.target.value)} type="text" className='form-control' placeholder='Search Product'/>
+        <input onChange={(e)=>search(e.target.value)} type="text" className='form-control' placeholder='Type the name of a Product, example: Samsung'/>
     
         <Table>
           <thead>

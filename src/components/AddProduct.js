@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import Header from './Header';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function AddProduct() {
   const navigate = useNavigate();
@@ -17,9 +19,18 @@ function AddProduct() {
     formData.append('name', name);
     formData.append('description', description);
 
+    const MySwal = withReactContent(Swal)
+
     await axios.post('http://localhost:8000/api/addproduct',formData)
     console.log("Product added successfuly !");
     document.getElementById('addProductForm').reset();
+
+    MySwal.fire({
+      title: <strong>Good job!</strong>,
+      html: <i>You successfuly created the product !</i>,
+      icon: 'success'
+    })
+
     navigate('/');
   }
 

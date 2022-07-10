@@ -15,7 +15,7 @@ function Login() {
     {
       navigate('/add');
     }
-  })
+  }, [navigate])
 
   async function login() 
   {
