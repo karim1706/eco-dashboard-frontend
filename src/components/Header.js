@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <div >
-        <Navbar bg="dark" variant="dark" id="header" className='col-lg-12'>
+        <Navbar bg="dark" variant="dark" id="header" className='col-lg-12 fixed-top'>
             <Link className="navbar-brand col-lg-2" to="/" >E-Com</Link>
             <Nav className='mr-auto navbar_wrapper col-lg-8'>
                 {
@@ -27,7 +27,7 @@ function Header() {
                   </>
                   :
                   <>
-                    <Link to='/'>Product List</Link>
+                    <Link to='/products'>Manage List</Link>
                     <Link to='/add'>Add Products</Link>
                     <Link to='/search'>Search Products</Link>
                   </>
