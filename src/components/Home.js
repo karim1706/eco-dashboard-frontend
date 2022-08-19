@@ -21,7 +21,7 @@ function Home() {
 
   return (
     <>
-        <Header />    
+        {/*<Header />*/ }   
         <h1>E-com</h1>
         <h3 style={{textAlign: 'center'}}>Let's have a look to our amazing products !</h3>
       <div className='container-fluid'>

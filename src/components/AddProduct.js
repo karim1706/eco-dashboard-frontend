@@ -36,7 +36,7 @@ function AddProduct() {
 
   return (
     <>
-      <Header />
+      {/*<Header />*/ }  
       <h1>AddProduct</h1>
       <div className='col-sm-6 offset-sm-3'>
         <form id='addProductForm'>

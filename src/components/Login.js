@@ -13,7 +13,7 @@ function Login() {
   useEffect(() => {
     if(localStorage.getItem('user-info'))
     {
-      navigate('/add');
+      navigate('/');
     }
   }, [navigate])
 
@@ -25,12 +25,12 @@ function Login() {
     })
 
     localStorage.setItem('user-info', JSON.stringify(loginResult.data));
-    navigate('/add');
+    navigate('/');
   }
 
   return (
     <>
-      <Header />
+      {/*<Header />*/ }  
 
       <h1>Login Page</h1>
       <div className='col-sm-6 offset-sm-3'>

@@ -34,7 +34,7 @@ function Register() {
 
   return (
     <>
-    <Header />
+    {/*<Header />*/ }  
     <div className='col-sm-6 offset-sm-3'>
         <h1>REGISTRATION PAGE</h1>
 

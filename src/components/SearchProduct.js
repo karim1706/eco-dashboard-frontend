@@ -21,7 +21,7 @@ function SearchProduct() {
 
   return (
     <>
-    <Header />
+    {/*<Header />*/ }  
     <div className='col-sm-6 offset-sm-3'>
         <h1>SearchProduct</h1>
         <input onChange={(e)=>search(e.target.value)} type="text" className='form-control' placeholder='Type the name of a Product, example: Samsung'/>

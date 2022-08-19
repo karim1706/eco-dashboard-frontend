@@ -34,7 +34,7 @@ function ProductList() {
 
   return (
     <div>
-        <Header />    
+        {/*<Header />*/ }      
         <h1>ProductList</h1>
         <Table>
           <thead>
@@ -58,7 +58,7 @@ function ProductList() {
                   <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt="Products Images"/></td>
                   <td><span onClick={()=>deleteProduct(item.id)} className='delete-btn'>Delete</span></td>
                   <td>
-                    <Link to={"update/"+item.id}>
+                    <Link to={"/update/"+item.id}> 
                         <span className='update-btn'>Update</span>
                     </Link>
                   </td>

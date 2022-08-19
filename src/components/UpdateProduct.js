@@ -56,7 +56,7 @@ function UpdateProduct(props) {
  
   return (
     <>
-      <Header />
+      {/*<Header />*/ }  
       <h1>UpdateProduct</h1>
 
       <div className='col-sm-6 offset-sm-3'>
@@ -65,9 +65,9 @@ function UpdateProduct(props) {
           <input type='text' defaultValue={data.name || '' } onChange={(e)=>setName(e.target.value)}/> <br /><br />
           <input type='text' defaultValue={data.description || ''} onChange={(e)=>setDescription(e.target.value)}/><br /><br />
           <input type='text' defaultValue={data.price || ''} onChange={(e)=>setPrice(e.target.value)}/><br /><br />
-          <img src={'http://localhost:8000/'+data.file_path} alt='Product view' onChange={(e)=>setFile(e.target.value)}/> <br /><br />
+          <img style={{height: 500, width: 300}} src={'http://localhost:8000/'+ data.file_path} alt='Product view' onChange={(e)=>setFile(e.target.value)}/> <br /><br />
           <input type='file' defaultValue={data.file_path || ''} onChange={(e)=>setFile(e.target.value)}/><br /><br /><br /> 
-          
+          {console.log(data.file_path)}
         </form>
 
         <button onClick={editProduct}>Update Product</button>

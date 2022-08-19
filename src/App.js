@@ -9,12 +9,14 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import SearchProduct from './components/SearchProduct';
 import ProductView from './components/ProductView';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Header />
         <Routes>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
@@ -23,7 +25,7 @@ function App() {
           <Route path="/products" element={<ProtectedRoutes Comp={ProductList}/>}/>
           <Route path="/view/:id" element={<ProtectedRoutes Comp={ProductView}/>}/>
           <Route path="/search" element={<ProtectedRoutes Comp={SearchProduct}/>}/>
-          <Route path="/" element={<ProtectedRoutes Comp={Home}/>}/>
+          <Route  index element={<ProtectedRoutes Comp={Home}/>}/>
         </Routes>
       </BrowserRouter>
      
